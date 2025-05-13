@@ -17,6 +17,19 @@ export const useLoadingClearParams = (
 
     const prevQueryRef = useRef(query);
 
+    // Очистка параметров при монтировании компонента
+    useEffect(() => {
+        const newQuery = new URLSearchParams(query);
+        stableClearParams?.forEach((key) => newQuery.delete(key));
+        if (stableExtraParams) {
+            Object.entries(stableExtraParams).forEach(([key, value]) => {
+                newQuery.set(key, value);
+            });
+        }
+        setQuery(newQuery);
+    }, []); // Пустой массив зависимостей означает, что эффект выполнится только при монтировании
+
+    // Очистка параметров при изменении URL
     useEffect(() => {
         if (prevQueryRef.current !== query) {
             const newQuery = new URLSearchParams(query);

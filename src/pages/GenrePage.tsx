@@ -10,7 +10,7 @@ export const GenrePage = () => {
     const {genreId = '0'} = useParams();
     const navigate = useNavigate();
     const genreName = useAppSelector(state => state.genreStore.genresMap[+genreId]);
-    const {isLoading, params} = useLoadingClearParams({clearParams: ['query'], extraParams: {with_genres: genreId}});
+    const {isLoading, params} = useLoadingClearParams({clearParams: ['query', 'sort_by'], extraParams: {with_genres: genreId}});
 
     useEffect(() => {
         if (!genreName && !isLoading) {
