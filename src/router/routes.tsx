@@ -6,7 +6,7 @@ import {MoviesPage} from "../pages/MoviesPage.tsx";
 import {GenrePage} from "../pages/GenrePage.tsx";
 import {LoginPage} from "../pages/LoginPage.tsx";
 import {LoginRoute} from "./LoginRoute.tsx";
-import {FavoritesPage} from "../pages/FavoritesPage.tsx";
+import {FavoritesPage} from "../pages/FavoritesPage";
 import {MoviePage} from "../pages/MoviePage.tsx";
 
 export const routes = createBrowserRouter([
