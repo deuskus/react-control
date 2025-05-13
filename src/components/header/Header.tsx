@@ -4,6 +4,8 @@ import {Menu} from "./menu/Menu.tsx";
 import {AuthMenu} from "./auth-menu/AuthMenu.tsx";
 import {HamburgerMenu} from "./hamburger-menu/HamburgerMenu.tsx";
 import {GiHamburgerMenu} from "react-icons/gi";
+import {IoHeartOutline} from "react-icons/io5";
+import {Link} from "react-router-dom";
 import {useState} from "react";
 
 export const Header = () => {
@@ -24,7 +26,14 @@ export const Header = () => {
                 </div>
                 <div className='flex items-center gap-4'>
                     <div className='hidden min-[1001px]:flex items-center'>
-                        <div className='w-64 mr-2 -ml-8'><SearchInput /></div>
+                        <div className='w-64 mr-6 -ml-[30px]'><SearchInput /></div>
+                        <Link 
+                            to="/favorites" 
+                            className='flex items-center gap-2 px-4 py-2 rounded-lg bg-white text-black font-semibold hover:bg-neutral-200 transition mr-4'
+                        >
+                            <IoHeartOutline className="text-xl" />
+                            Favorites
+                        </Link>
                         <AuthMenu />
                     </div>
                     <button

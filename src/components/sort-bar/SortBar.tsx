@@ -15,7 +15,7 @@ export const SortBar = () => {
     const current = sortOptions.find(o => o.value === sortBy) || sortOptions[0];
 
     return (
-        <div className='flex items-center gap-2 self-end w-1/3 max-[1073px]:w-full max-[1073px]:justify-center text-sm px-2 mt-2 relative z-20'>
+        <div className='flex items-center gap-2 self-start w-1/3 max-[1073px]:w-full max-[1073px]:justify-start text-sm px-2 mt-2 relative z-20'>
             <label>Sort by:</label>
             <div className="relative w-48">
                 <button

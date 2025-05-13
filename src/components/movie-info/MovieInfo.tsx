@@ -4,6 +4,7 @@ import {StarsRating} from "../stars-rating/StarsRating.tsx";
 import {FaDisplay} from "react-icons/fa6";
 import {GenreBadges} from "../genre-badges/GenreBadges.tsx";
 import {PosterPreview} from "../poster-preview/PosterPreview.tsx";
+import {FavoriteButton} from "../favorite-button/FavoriteButton.tsx";
 
 
 type MovieInfoProps = {
@@ -54,13 +55,16 @@ export const MovieInfo: FC<MovieInfoProps> = ({ movie }) => {
                         </span>
                     </div>
                     <p className="text-gray-800 text-base leading-relaxed mb-4">{overview}</p>
-                    <button
-                        onClick={handleClickPoster}
-                        className="mt-auto flex items-center gap-3 px-6 py-3 bg-black text-white rounded-xl text-lg font-bold shadow-lg hover:bg-neutral-800 transition focus:ring-2 focus:ring-white focus:outline-none"
-                    >
-                        <FaDisplay className="text-2xl" />
-                        Show poster
-                    </button>
+                    <div className="mt-auto flex gap-4">
+                        <button
+                            onClick={handleClickPoster}
+                            className="flex items-center gap-3 px-6 py-3 bg-black text-white rounded-xl text-lg font-bold shadow-lg hover:bg-neutral-800 transition focus:ring-2 focus:ring-white focus:outline-none"
+                        >
+                            <FaDisplay className="text-2xl" />
+                            Show poster
+                        </button>
+                        <FavoriteButton movie={movie} />
+                    </div>
                 </div>
             </div>
             {isPosterOpen && <PosterPreview movie={movie} handlerClick={handleClickPoster} />}

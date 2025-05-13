@@ -1,19 +1,11 @@
 import {Link, useNavigate} from "react-router-dom";
 import {useAppSelector} from "../redux/hooks/useAppSelector.ts";
-import {useEffect} from "react";
 import {useAppDispatch} from "../redux/hooks/useAppDispatch.ts";
 import {userActions} from "../redux/slices/user-slice/userSlice.ts";
 
 export const WelcomePage = () => {
     const navigate = useNavigate();
-    const { user, isGuest } = useAppSelector(state => state.userStore);
     const dispatch = useAppDispatch();
-
-    useEffect(() => {
-        if (user || isGuest) {
-            navigate('/movies');
-        }
-    }, [user, isGuest, navigate]);
 
     const handleGuestLogin = () => {
         dispatch(userActions.guestLogin());
